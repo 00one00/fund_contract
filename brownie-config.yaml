@@ -1,0 +1,40 @@
+dependencies:
+  # - <organization/repo>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+
+compiler:
+  solc:
+    remappings:
+      '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+
+dotenv: .env
+
+networks:
+  default: development
+  development:
+    verify: False
+  goerli:
+    eth_usd_price_feed: '0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e'
+    dai_usd_price_feed: '0x0d79df66BE487753B02D015Fb622DED7f0E9798d'
+    verify: True
+  mainnet:
+    eth_usd_price_feed: '0xaEA2808407B7319A31A383B6F8B60f04BCa23cE2'
+    dai_usd_price_feed: '0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9'
+    verify: True
+  mainnet-fork-dev: 
+    eth_usd_price_feed: '0xaEA2808407B7319A31A383B6F8B60f04BCa23cE2'
+    dai_usd_price_feed: '0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9'
+    verify: False
+  ftm-test:
+    eth_usd_price_feed: '0xB8C458C957a6e6ca7Cc53eD95bEA548c52AFaA24'
+    verify: True
+  polygon-test:
+    eth_usd_price_feed: '0x0715A7794a1dc8e42615F059dD6e406A6594651A'
+    dai_usd_price_feed: '0x0FCAa9c899EC5A91eBc3D5Dd869De833b06fB046'
+    verify: True
+  ganache-local: 
+    verify: False
+
+wallet:
+  from_key: ${PRIVATE_KEY}
+
